@@ -1,0 +1,10 @@
+<form [formGroup]="forma">
+  <input type="text" placeholder="Enter the stuff description" formControlName="stuffName" />
+  <button type="button" (click)="addStuff()">Add stuff</button>
+</form>
+<div *ngIf="stuffList.length > 0">
+  <div *ngFor="let item of stuffList; index as i" class="stuff-container">
+    <span class="stuff" (click)="onStuffClick()">{{item | upperCapital}}</span>
+    <a href="#" (click)="removeStuff(i)">Remove</a>
+  </div>
+</div>

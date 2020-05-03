@@ -1,0 +1,21 @@
+.stuff-container{
+  border: 1px dashed steelblue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+}
+
+.stuff-container:first-child{
+  margin-top: 10px;
+}
+
+.stuff-container + .stuff-container{
+  margin-top: 5px;
+}
+
+.stuff-container .stuff{
+  padding: 5px;
+}
