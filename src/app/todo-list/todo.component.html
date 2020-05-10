@@ -1,5 +1,5 @@
 <form [formGroup]="forma">
-  <input type="text" placeholder="Enter the stuff description" formControlName="stuffName" />
+  <input type="text" placeholder="Enter the stuff description" (keyup.enter)="addStuff()" formControlName="stuffName" />
   <button type="button" (click)="addStuff()">Add stuff</button>
 </form>
 <div *ngIf="stuffList.length > 0">

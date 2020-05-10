@@ -6,9 +6,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
-
 export class ToDoComponent {
-  @Input() stuff: string;
   @Output() sayHello: EventEmitter<string> = new EventEmitter<string>();
   stuffList: string[] = [];
   forma: FormGroup;
@@ -20,8 +18,10 @@ export class ToDoComponent {
   }
 
   addStuff() {
-    this.stuffList.push(this.stuffName);
-    this.forma.reset();
+    if (this.isFieldCompleted(this.stuffName)) {
+      this.stuffList.push(this.stuffName);
+      this.forma.reset();
+    }
   }
 
   removeStuff(index: number) {
@@ -34,5 +34,9 @@ export class ToDoComponent {
 
   get stuffName() {
     return this.forma.get('stuffName').value;
+  }
+
+  isFieldCompleted(field: any) {
+    return field && field.trim().length > 0;
   }
 }
